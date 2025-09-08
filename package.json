@@ -1,20 +1,45 @@
 {
-  "scripts": {
-    "add-all": " yarn install && cd client && yarn install && cd ../server && yarn install",
-    "client": "cd client && yarn run dev",
-    "server": "cd server && yarn run dev",
-    "client:start": "cd client && yarn start",
-    "server:start": "cd server && yarn start",
-    "build": "cd client && yarn run build",
-    "dev": "concurrently \"yarn run client\" \"yarn run server\"",
-    "start": "concurrently \"yarn run client:start\" \"yarn run server:start\""
+  "name": "admin-api-boilerplate",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
   },
-  "devDependencies": {
-    "concurrently": "^9.1.0"
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "lint": "eslint .",
+    "prepare": "husky"
   },
   "dependencies": {
-    "axios": "^1.8.2",
-    "idb": "^8.0.2"
+    "argon2": "^0.41.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "google-auth-library": "^9.14.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.1",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.13",
+    "pino": "^9.3.2",
+    "pino-pretty": "^11.2.2",
+    "qrcode": "^1.5.4",
+    "speakeasy": "^2.0.0",
+    "zod": "^3.23.8"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "eslint": "^9.35.0",
+    "globals": "^16.3.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.7",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.6.2"
+  },
+  "lint-staged": {
+    "**/*.{js,json}": "eslint --fix"
+  }
 }
